@@ -1,6 +1,5 @@
-# Farmer House
-
-# An In-depth Guide to Using Fusion: NFT Composability made Easier with FarmerHouse
+# Farmer House - An In-depth Guide to Using Fusion: NFT Composability made Easier with FarmerHouse
+## Author: [Gabriel Warmling](https://github.com/bielwarm)
 
 In the world of Non-Fungible Tokens (NFTs), composability is a game-changer. Imagine an NFT akin to a backpack, capable of holding various item NFTs inside it, or a farm field NFT with slots for different plant NFTs to grow in it. As dynamic and intriguing as it sounds, realizing this isn't an easy feat, and that's where **Fusion** enters the scene.
 
