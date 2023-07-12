@@ -1,0 +1,26 @@
+[features]
+seeds = false
+skip-lint = false
+[programs.localnet]
+farmer_house = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[test]
+startup_wait = 3000
+
+[[test.genesis]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+program = "../metaplex-program-library/test-programs/mpl_token_metadata.so"
+
+[[test.genesis]]
+address = "trifMWutwBxkSuatmpPVnEe7NoE3BJKgjVi8sSyoXWX"
+program = "../metaplex-program-library/test-programs/mpl_trifle.so"
