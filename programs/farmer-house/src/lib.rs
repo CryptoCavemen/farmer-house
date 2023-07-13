@@ -3,7 +3,6 @@ use anchor_lang::prelude::*;
 pub mod errors;
 pub mod farm;
 pub mod init;
-pub mod mint;
 pub mod shop;
 
 use farm::*;

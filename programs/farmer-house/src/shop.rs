@@ -171,7 +171,6 @@ pub fn buy_field(ctx: Context<BuyField>) -> Result<()> {
                 mint: ctx.accounts.field_mint.to_account_info(),
                 system_program: ctx.accounts.system_program.to_account_info(),
                 token_program: ctx.accounts.token_program.to_account_info(),
-                rent: ctx.accounts.rent.to_account_info(),
             },
         ))?;
     }
@@ -372,7 +371,6 @@ pub fn buy_seed(ctx: Context<BuySeed>) -> Result<()> {
                 mint: ctx.accounts.seed_mint.to_account_info(),
                 system_program: ctx.accounts.system_program.to_account_info(),
                 token_program: ctx.accounts.token_program.to_account_info(),
-                rent: ctx.accounts.rent.to_account_info(),
             },
         ))?;
     }
@@ -616,7 +614,6 @@ pub struct BuySeed<'info> {
     /// CHECK: 
     pub seed_metadata: UncheckedAccount<'info>,
 
-    pub rent: Sysvar<'info, Rent>,
     pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
     pub token_program: Program<'info, token::Token>,
     pub system_program: Program<'info, System>,
@@ -645,7 +642,6 @@ pub struct SellCrop<'info> {
     #[account(mut)]
     pub crop_metadata: UncheckedAccount<'info>,
 
-    pub rent: Sysvar<'info, Rent>,
     pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
     pub token_program: Program<'info, token::Token>,
     pub system_program: Program<'info, System>,

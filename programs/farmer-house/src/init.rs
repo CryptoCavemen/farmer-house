@@ -41,7 +41,6 @@ pub fn init_farms_pda(
             mint: ctx.accounts.spl_mint.to_account_info(),
             system_program: ctx.accounts.system_program.to_account_info(),
             token_program: ctx.accounts.token_program.to_account_info(),
-            rent: ctx.accounts.rent.to_account_info(),
         },
     ))?;
     Ok(())
@@ -157,7 +156,6 @@ pub struct InitFarmsPda<'info> {
     pub pda_associated_token_account: UncheckedAccount<'info>,
     pub spl_mint: Account<'info, token::Mint>,
     pub system_program: Program<'info, System>,
-    pub rent: Sysvar<'info, Rent>,
     pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
     pub token_program: Program<'info, token::Token>,
     pub farmer_house_program: Program<'info, program_farmer_house>,

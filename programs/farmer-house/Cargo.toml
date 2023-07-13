@@ -16,7 +16,8 @@ cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
-anchor-lang = "0.25.0"
-anchor-spl = "0.25.0"
-mpl-token-metadata = { version="1.6.5", features = [ "no-entrypoint" ] }
-mpl-trifle = { version="0.3.3", features = [ "no-entrypoint" ] }
+anchor-lang = { version = "0.26.0", features = ["init-if-needed"] }
+anchor-spl = "0.26.0"
+solana-frozen-abi-macro = "=1.14.18"
+mpl-token-metadata = { version="1.8.5", features = [ "no-entrypoint" ] }
+mpl-trifle = { version="0.5.3", features = [ "no-entrypoint" ] }

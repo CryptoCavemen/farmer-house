@@ -1,5 +1,5 @@
 # Farmer House - An In-depth Guide to Using Fusion: NFT Composability made Easier with FarmerHouse
-## Author: [Gabriel Warmling](https://github.com/bielwarm)
+### Author: [Gabriel Warmling](https://github.com/bielwarm)
 
 In the world of Non-Fungible Tokens (NFTs), composability is a game-changer. Imagine an NFT akin to a backpack, capable of holding various item NFTs inside it, or a farm field NFT with slots for different plant NFTs to grow in it. As dynamic and intriguing as it sounds, realizing this isn't an easy feat, and that's where **Fusion** enters the scene.
 
@@ -10,6 +10,20 @@ Two critical components make Fusion function seamlessly: the **Escrow Constraint
 This article dives deeper into Fusion through its use within an interactive game environment, embodied in a program/smart contract called **FarmerHouse**. Specifically designed to work in a game format, FarmerHouse creates an engaging way of demonstrating Fusion's utility. Its role is to provide an intuitive interface to visualize and interact with NFT composability, making the abstract concept more accessible to users.
 
 Whether you're a novice eager to venture into the realm of NFTs or a seasoned player, this comprehensive guide will navigate you through Fusion's features, making NFT composability a smooth and enriching experience. So, let's embark on this journey!
+
+## Disclaimer
+
+This article assumes an intermediate level of knowledge regarding the Solana blockchain, Metaplex, and non-fungible tokens (NFTs). The content is geared towards developers and users who are familiar with the following concepts:
+
+- Basic understanding of blockchain technology, especially Solana
+- Familiarity with NFTs and how they operate within a blockchain ecosystem
+- Experience with Metaplex and its functionalities
+- Understanding of Program Derived Addresses (PDAs) and how to work with them on Solana
+- Experience with Anchor, a framework for Solana’s Sealevel runtime, or similar frameworks
+- Familiarity with JavaScript or TypeScript, and basics of Rust, the main programming language used in this tutorial
+
+Without this foundational knowledge, you may find the content challenging to follow. If you are new to these concepts, we recommend starting with the Solana and Metaplex documentation, as well as familiarizing yourself with NFTs in general.
+
 
 ## Farmer House Program: An Overview
 
@@ -129,7 +143,7 @@ The next task is to equip the FarmsPDA with the necessary CurrencyTokens. These 
 
 Now, let's proceed to mint the FieldNFT and TomatoNFT. These two non-fungible tokens represent the fundamental elements of the FarmerHouse game - the farm field (FieldNFT) and the tomato plant (TomatoNFT).
 
-During the minting process, ensure that the collection of TomatoNFT is set as TomatoSeedCollectionNFT, and for FieldNFT, its collection should be configured as FieldCollectionNFT. Feel free to mint these tokens directly to the FarmsPDA. 
+During the minting process, ensure that the collection of TomatoNFT is set as TomatoSeedCollectionNFT and **<u>verified</u>**, and for FieldNFT, its collection should be configured as FieldCollectionNFT and **<u>verified</u>**. Feel free to mint these tokens directly to the FarmsPDA. 
 
 > **Note:** Save the mintAddress, metadataAddress and masterEditionAddress of each.
 
@@ -342,6 +356,7 @@ This `plantSeed` method transfers the TomatoNFT (which must be part of the `toma
 
 As a result, our TrifleAccount (representing the farm field parent NFT) now "holds" the TomatoNFT (representing the seed child NFT), creating the NFT bundle. Therefore, our parent NFT effectively has a planted seed, symbolizing the beginning of the farming process in the game.
 
+> **Important Note:** The Trifle program verifies if the collection of the attributeNFT (in our case, TomatoNFT) is confirmed, due to the collection constraints we have set for our TrifleAccount. This verification process justifies our earlier decision to verify the collection while minting the TomatoNFT. However, immediately after we plant (transfer the TomatoNFT into our Trifle), we unverify the collection. We choose to do this on the front end to keep the tutorial focused on Trifle-related aspects. But in an ideal scenario, we should unverify just before updating the metadata and then, once the collection is altered in the metadata, reverify it with the new collection.
 
 ## Step 6: Watering the Crop
 
