@@ -221,7 +221,7 @@ describe("farmer-house", () => {
     console.log("300 Tokens transferred to shop's token account");
   })
 
-  it("Mints necessary NFTs and update authority for collections metadata", async () => {
+  it("Mints necessary NFTs", async () => {
 
     console.log("Minting field")
     const { nft: newFieldNft } = await metaplex.nfts().create({
@@ -381,7 +381,7 @@ describe("farmer-house", () => {
     console.log("Seed bought");
   })
 
-  it("Plants seed", async () => {
+  it("Plants seed and unverifies collection", async () => {
 
     const [trifleAddress] = findTriflePda(fieldNft.mint.address, farmsPda);
     const [escrowAccountAddress] = findEscrowPda(fieldNft.mint.address, 1, trifleAddress);
@@ -410,7 +410,6 @@ describe("farmer-house", () => {
         trifleProgram: trifle.PROGRAM_ID,
       })
       .signers([userWallet])
-      .preInstructions([anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ units: 400000 }), anchor.web3.ComputeBudgetProgram.setComputeUnitPrice({ microLamports: 0 })])
       .rpc();
 
     const latestBlockHash = await provider.connection.getLatestBlockhash();
