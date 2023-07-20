@@ -53,7 +53,7 @@ The Farmer House workflow encapsulates the following stages:
 
 6. **Selling**: The last step in the game workflow is selling. Users can sell their harvested ripe Tomato NFTs back to the shop. The mature Tomato NFTs fetch a higher selling price, potentially earning users a profit.
 
-![image](https://github.com/bielwarm/farmer-house/assets/97843437/99f9b349-e5b0-4b5c-86c6-65a6d6c55be8)
+![image](<assets/FarmerHouse Flow.png>)
 
 
 Through Farmer House, Fusion's utility is demonstrated in an engaging game format. The program provides an intuitive interface to visualize and interact with NFT composability, making the abstract concept accessible to users. As a user, whether you're new to the realm of NFTs or a seasoned player, Farmer House offers a comprehensive guide to Fusion's features, simplifying NFT composability into a smooth and enriching experience. So, let's embark on this journey together!
